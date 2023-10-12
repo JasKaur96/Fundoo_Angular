@@ -8,13 +8,8 @@
       </div>
       <form class="form" [formGroup]="loginForm">
         <mat-form-field appearance="outline">
-          <input
-            formControlName="email"
-            matInput
-            placeholder="Email or phone"
-            required
-          />
-
+          <mat-label>Email or phone</mat-label>
+          <input formControlName="email" matInput required />
           <mat-error
             *ngIf="
               !loginForm?.get('password')?.valid &&
@@ -25,14 +20,9 @@
           <mat-icon matSuffix></mat-icon>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <input
-            matInput
-            formControlName="password"
-            type="password"
-            placeholder="Password*"
-          />
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" />
           <mat-icon matSuffix></mat-icon>
-          <!-- <mat-hint>Hint</mat-hint> -->
         </mat-form-field>
         <div class="login-button">
           <a href="">Forget password?</a>

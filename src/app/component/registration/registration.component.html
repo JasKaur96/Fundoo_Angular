@@ -51,11 +51,8 @@
             </div>
             <div class="email">
               <mat-form-field appearance="outline">
-                <input
-                  matInput
-                  placeholder="UserName*"
-                  formControlName="email"
-                />
+                <mat-label>UserName</mat-label>
+                <input matInput formControlName="email" />
                 <mat-error
                   *ngIf="
                     !registerForm?.get('email')?.valid &&
@@ -110,10 +107,6 @@
           </div>
 
           <div>
-            <!-- <span class="hint"
-              >Use 8 or more characters with a mix of letters, numbers &
-              symbols</span
-            > -->
             <section class="example-section">
               <mat-checkbox class="example-margin">Show password</mat-checkbox>
             </section>
