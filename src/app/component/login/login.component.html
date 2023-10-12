@@ -3,12 +3,11 @@
     <mat-card-content>
       <!-- <div class="main"> -->
       <div class="google-login-text">
-        <span class="signup-title">Fundoo</span>
-        <span>Login to your Fundoo Account</span>
+        <span class="login-title">Fundoo</span>
+        <span class="login-sub-title">Login to your Fundoo Account</span>
       </div>
       <form class="form" [formGroup]="loginForm">
         <mat-form-field appearance="outline">
-          <!-- <input matInput formControlplaceholder="Email or phone" /> -->
           <input
             formControlName="email"
             matInput
@@ -24,15 +23,17 @@
             >Password is required!</mat-error
           >
           <mat-icon matSuffix></mat-icon>
-          <!-- <mat-hint>Hint</mat-hint> -->
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>Password*</mat-label>
-          <input matInput formControlName="password" placeholder="Password*" />
+          <input
+            matInput
+            formControlName="password"
+            type="password"
+            placeholder="Password*"
+          />
           <mat-icon matSuffix></mat-icon>
           <!-- <mat-hint>Hint</mat-hint> -->
         </mat-form-field>
-        <!-- </div> -->
         <div class="login-button">
           <a href="">Forget password?</a>
         </div>

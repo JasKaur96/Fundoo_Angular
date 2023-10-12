@@ -34,7 +34,7 @@ mat-form-field {
   align-items: center;
 }
 .login-button {
-  margin-top: 36px;
+  margin-bottom: 36px;
   display: flex;
   justify-content: space-between;
 }
@@ -74,11 +74,22 @@ mat-form-field {
   // height: 20%;
   // justify-content: space-between;
 }
-.signup-title {
+.login-title {
   font-size: 30px;
   color: #fbbc04;
   font-weight: 500;
   padding: 15px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-sub-title {
+  font-size: 26px;
+  font-weight: 400;
+  padding: 15px 0px 35px 0px;
+  line-height: initial;
+  display: flex;
+  justify-content: center;
 }
 .mat-mdc-card-content {
   display: block;
