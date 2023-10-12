@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/services/user/user.service';
 import { MustMatch } from './must-match.validator';
 
@@ -14,7 +15,8 @@ export class RegistrationComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    public router: Router
   ) {}
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
@@ -70,6 +72,9 @@ export class RegistrationComponent {
         .subscribe((response: any) => {
           console.log('id', response);
           localStorage.setItem('token', response.id);
+          if (response?.data) {
+            this.router.navigate(['']);
+          }
         });
     }
   }

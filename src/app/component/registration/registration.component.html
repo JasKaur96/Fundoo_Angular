@@ -45,19 +45,15 @@
                   "
                   >Last name is required!</mat-error
                 >
-                <!-- <mat-error *ngIf="lastName?.errors?.['pattern']"
-                  >Enter valid last name</mat-error
-                > -->
 
                 <mat-icon matSuffix></mat-icon>
               </mat-form-field>
             </div>
             <div class="email">
               <mat-form-field appearance="outline">
-                <mat-label>*UserName</mat-label>
                 <input
                   matInput
-                  placeholder="*UserName"
+                  placeholder="UserName*"
                   formControlName="email"
                 />
                 <mat-error
@@ -87,10 +83,10 @@
                   "
                   >Password is required!</mat-error
                 >
-                <!-- <mat-error *ngIf="password?.errors?.['pattern']"
-                  >Enter valid password</mat-error
-                > -->
-                <mat-icon matSuffix></mat-icon>
+                <mat-hint class="mat-mdc-form-field-hint-wrapper"
+                  >Use 8 or more characters with a mix of letters, numbers &
+                  symbols</mat-hint
+                >
               </mat-form-field>
               <mat-form-field class="field-two" appearance="outline">
                 <mat-label>Confirm Password</mat-label>
@@ -107,36 +103,29 @@
                   "
                   >Confirm Password is required!</mat-error
                 >
-                <!-- <mat-error *ngIf="confirmPassword?.errors?.['pattern']"
-                  >Enter valid confirm password</mat-error
-                > -->
+
                 <mat-icon matSuffix></mat-icon>
               </mat-form-field>
             </div>
           </div>
 
           <div>
-            <span class="hint"
+            <!-- <span class="hint"
               >Use 8 or more characters with a mix of letters, numbers &
               symbols</span
-            >
+            > -->
             <section class="example-section">
               <mat-checkbox class="example-margin">Show password</mat-checkbox>
             </section>
             <div class="submit">
               <a href="" class="signIn-instead"> Sign in instead </a>
               <button mat-flat-button color="primary" (click)="handleSubmit()">
-                Submit
+                Next
               </button>
             </div>
           </div>
         </form>
         <div class="google-logo-box">
-          <!-- <img
-            className="gimg"
-            src="src/assets/googleimagelogo.png"
-            alt="Google Image"
-          /> -->
           <div class="signup-img-cnt">
             <img
               src="https://ssl.gstatic.com/accounts/signup/glif/account.svg"
@@ -146,7 +135,6 @@
           </div>
         </div>
       </div>
-      <!-- </div> -->
     </mat-card-content>
   </mat-card>
 </body>
