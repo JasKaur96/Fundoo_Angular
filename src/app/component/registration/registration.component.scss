@@ -1,0 +1,132 @@
+body {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  //   border: 1px solid;
+  //   width: 50%;
+}
+mat-card {
+  margin: 35px;
+  width: 55%;
+}
+
+mat-form-field {
+  //   padding: 20px 20px 0px 20px;
+  width: 100%;
+}
+.field-two {
+  margin-left: 14px;
+}
+.signup-img-cnt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  span {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.main-container {
+  margin-top: 10vh;
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+}
+.name {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  //   width: 77%;
+}
+// .email {
+//   display: flex;
+//   width: 77%;
+// }
+// .sign-up {
+//   width: 85%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   align-items: center;
+//   border: 1px solid black;
+//   border-radius: 30px;
+// }
+.hint {
+  margin-top: 8px;
+}
+.form {
+  padding-right: 85px;
+}
+.total-page {
+  margin-top: 10vh;
+  width: 100vw;
+  height: 90vh;
+}
+
+.in-box {
+  margin: auto;
+  width: 55%;
+  height: 90%;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 30px;
+}
+.sign-up {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.text-box {
+  margin-right: 2%;
+}
+.signIn-instead {
+  display: flex;
+  align-items: center;
+}
+.submit {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.signup-title-cnt {
+  display: flex;
+  flex-direction: column;
+  // height: 20%;
+  // justify-content: space-between;
+}
+.signup-title {
+  font-size: 30px;
+  color: #fbbc04;
+  font-weight: 500;
+  padding: 15px 0px 0px 0px;
+}
+.signup-sub-title {
+  font-size: 26px;
+  font-weight: 400;
+  padding: 15px 0px 15px 0px;
+  line-height: initial;
+}
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background {
+  border-color: #3f51b5 !important;
+  background-color: #3f51b5 !important;
+}
+.mat-mdc-card {
+  width: auto;
+}
+
+.mat-mdc-card-content {
+  display: block;
+  margin: 35px;
+  padding: 0 35px;
+  margin-bottom: 56px;
+}
