@@ -1,0 +1,213 @@
+<div class="dashboard-header-outer-cnt">
+  <mat-toolbar>
+    <div class="menu-logo">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="showFiller = !showFiller"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="logo-name">
+        <img
+          class="logo"
+          src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <span class="name">Keep</span>
+      </div>
+    </div>
+    <div>
+      <!-- <div style="display: flex; width: 60%">
+        <div class="note-search-cnt">
+          <mat-icon
+            style="width: 18px !important; height: 18px !important"
+            svgIcon="search-icon"
+            aria-hidden="false"
+            aria-label="Search SVG icon"
+          ></mat-icon>
+          <input placeholder="Search" />
+        </div>
+      </div> -->
+
+      <!-- <div class="search-container">
+        <input type="text" placeholder="Search" class="search-input" />
+      </div> -->
+      <div class="note-search-cnt">
+        <mat-icon
+          style="width: 18px !important"
+          svgIcon="search-icon"
+          aria-hidden="false"
+          aria-label="Search SVG icon"
+        ></mat-icon>
+        <input placeholder="Search" />
+      </div>
+      <mat-icon matSuffix></mat-icon>
+    </div>
+    <div class="icons">
+      <button mat-icon-button>
+        <mat-icon
+          svgIcon="refresh-icon"
+          aria-hidden="false"
+          aria-label="Refresh SVG icon"
+        ></mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon
+          svgIcon="list-view-icon"
+          aria-hidden="false"
+          aria-label="List view SVG icon"
+        ></mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon
+          svgIcon="setting-icon"
+          aria-hidden="false"
+          aria-label="Setting SVG icon"
+        ></mat-icon>
+      </button>
+      <div class="menu-avatar-cnt">
+        <button mat-icon-button>
+          <mat-icon
+            svgIcon="other-menu-icon"
+            aria-hidden="false"
+            aria-label="Menu SVG icon"
+          ></mat-icon>
+        </button>
+        <div class="user-avatar">
+          <!-- <span>sdfsdf</span> -->
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>
+  <mat-drawer-container class="side-nav-bar-outer-cnt" hasBackdrop="false">
+    <mat-drawer class="side-nav-drawer-cnt" opened>
+      <div class="drawer-content-cnt">
+        <div class="side-navbar-cnt">
+          <div class="nav-cnt">
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="note-icon"
+                aria-hidden="false"
+                aria-label="Note SVG icon"
+              ></mat-icon>
+            </button>
+
+            <div *ngIf="showFiller">Note</div>
+          </div>
+          <div class="nav-cnt">
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="reminder-icon"
+                aria-hidden="false"
+                aria-label="Reminder SVG icon"
+              ></mat-icon>
+            </button>
+            <div *ngIf="showFiller">Reminder</div>
+          </div>
+          <div class="nav-cnt">
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="edit-icon"
+                aria-hidden="false"
+                aria-label="Edit SVG icon"
+              ></mat-icon>
+            </button>
+            <span *ngIf="showFiller">Edit</span>
+          </div>
+          <div class="nav-cnt">
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="archive-icon"
+                aria-hidden="false"
+                aria-label="Archive SVG icon"
+              ></mat-icon>
+            </button>
+            <span *ngIf="showFiller">Archive</span>
+          </div>
+          <div class="nav-cnt">
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="trash-icon"
+                aria-hidden="false"
+                aria-label="Trash SVG icon"
+              ></mat-icon>
+            </button>
+            <span *ngIf="showFiller">Trash</span>
+          </div>
+        </div>
+        <!-- <div>
+          <span *ngIf="showFiller">Note</span>
+          <span *ngIf="showFiller">Note</span>
+        </div> -->
+
+        <!-- <div class="side-navbar-cnt">
+          <div style="display: flex">
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="note-icon"
+                aria-hidden="false"
+                aria-label="Note SVG icon"
+              ></mat-icon>
+            </button>
+            <div *ngIf="showFiller">Note</div>
+          </div>
+          <div>
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="reminder-icon"
+                aria-hidden="false"
+                aria-label="Reminder SVG icon"
+              ></mat-icon>
+            </button>
+            <div *ngIf="showFiller">Reminder</div>
+          </div>
+          <div>
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="edit-icon"
+                aria-hidden="false"
+                aria-label="Edit SVG icon"
+              ></mat-icon>
+            </button>
+            <span *ngIf="showFiller">Edit</span>
+          </div>
+          <div>
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="archive-icon"
+                aria-hidden="false"
+                aria-label="Archive SVG icon"
+              ></mat-icon>
+            </button>
+            <span *ngIf="showFiller">Archive</span>
+          </div>
+          <div>
+            <button mat-icon-button>
+              <mat-icon
+                svgIcon="trash-icon"
+                aria-hidden="false"
+                aria-label="Trash SVG icon"
+              ></mat-icon>
+            </button>
+            <span *ngIf="showFiller">Trash</span>
+          </div>
+        </div> -->
+        <div class="router-outlet-cnt">
+          <router-outlet></router-outlet>
+        </div>
+        <!-- </div> -->
+        <!-- <div *ngIf="showFiller">
+            <span>Notes</span>
+            <span>Notes</span>
+            <span>Notes</span>
+          </div> -->
+        <!-- </div> -->
+        <!-- </mat-drawer>
+  </mat-drawer-container> -->
+      </div>
+    </mat-drawer></mat-drawer-container
+  >
+</div>
