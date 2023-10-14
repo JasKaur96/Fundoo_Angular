@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/services/user/user.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -28,8 +30,6 @@ export class LoginComponent {
           ),
         ],
       ],
-
-      // Add more form controls as needed
     });
   }
 
@@ -47,6 +47,9 @@ export class LoginComponent {
         .subscribe((response: any) => {
           console.log('id', response);
           localStorage.setItem('token', response);
+          if (response.id) {
+            this.router.navigate(['dashboard']);
+          }
         });
     }
   }
