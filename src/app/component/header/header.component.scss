@@ -135,7 +135,11 @@ input.nosubmit {
 
 .icons {
   display: flex;
-  margin-right: 12vw;
+  margin-right: 8vw;
+}
+.header-icons {
+  display: flex;
+  // margin-right: 12vw;
 }
 .note-search-cnt {
   display: flex;
@@ -146,6 +150,7 @@ input.nosubmit {
   background-color: #f1f3f4;
   border-radius: 8px;
   margin-top: 33px;
+  // margin-left: 40px;
 
   input {
     width: 85%;
@@ -246,4 +251,7 @@ input.nosubmit {
 }
 .mat-drawer-content {
   display: contents;
+}
+.menu-avatar {
+  padding-left: 37px;
 }
