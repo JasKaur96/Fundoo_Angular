@@ -46,8 +46,8 @@ export class LoginComponent {
         })
         .subscribe((response: any) => {
           console.log('id', response);
-          localStorage.setItem('token', response);
           if (response.id) {
+            localStorage.setItem('token', response.id);
             this.router.navigate(['dashboard']);
           }
         });
