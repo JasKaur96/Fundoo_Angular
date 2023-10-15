@@ -22,10 +22,11 @@ import {
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent {
   currState!: boolean;
   subscription!: Subscription;
   showFiller = false;
+  navValue = 'notes';
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIconLiteral(
       'menu-icon',
@@ -73,17 +74,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnInit() {
-    // this.subscription = this.data.currentSideNavbarState.subscribe(
-    //   (state) => (this.currState = state)
-    // );
-  }
-
-  ngOnDestroy() {
-    // this.subscription.unsubscribe();
-  }
-
-  // toggleSideNavbar = () => {
-  //   this.data.toggleSideNavbar(!this.currState);
-  // };
+  handleSideNav = (nav: string) => {
+    console.log('nav', nav);
+  };
 }

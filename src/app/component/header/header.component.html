@@ -20,21 +20,6 @@
       </div>
     </div>
     <div>
-      <!-- <div style="display: flex; width: 60%">
-        <div class="note-search-cnt">
-          <mat-icon
-            style="width: 18px !important; height: 18px !important"
-            svgIcon="search-icon"
-            aria-hidden="false"
-            aria-label="Search SVG icon"
-          ></mat-icon>
-          <input placeholder="Search" />
-        </div>
-      </div> -->
-
-      <!-- <div class="search-container">
-        <input type="text" placeholder="Search" class="search-input" />
-      </div> -->
       <div class="note-search-cnt">
         <mat-icon
           style="width: 18px !important"
@@ -87,7 +72,7 @@
       <div class="drawer-content-cnt">
         <div class="side-navbar-cnt">
           <div class="nav-cnt">
-            <button mat-icon-button>
+            <button mat-icon-button (click)="handleSideNav('notes')">
               <mat-icon
                 svgIcon="note-icon"
                 aria-hidden="false"
@@ -118,7 +103,7 @@
             <span *ngIf="showFiller">Edit</span>
           </div>
           <div class="nav-cnt">
-            <button mat-icon-button>
+            <button mat-icon-button (click)="handleSideNav('archive')">
               <mat-icon
                 svgIcon="archive-icon"
                 aria-hidden="false"
@@ -128,7 +113,7 @@
             <span *ngIf="showFiller">Archive</span>
           </div>
           <div class="nav-cnt">
-            <button mat-icon-button>
+            <button mat-icon-button (click)="handleSideNav('trash')">
               <mat-icon
                 svgIcon="trash-icon"
                 aria-hidden="false"
