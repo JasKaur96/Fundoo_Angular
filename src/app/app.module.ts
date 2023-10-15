@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,6 +19,9 @@ import { LoginComponent } from './component/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HeaderComponent } from './component/header/header.component';
+import { AddNoteComponent } from './component/add-note/add-note.component';
+import { NotesCardComponent } from './component/notes-card/notes-card.component';
+import { NoteIconsComponent } from './component/note-icons/note-icons.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { HeaderComponent } from './component/header/header.component';
     LoginComponent,
     DashboardComponent,
     HeaderComponent,
+    AddNoteComponent,
+    NotesCardComponent,
+    NoteIconsComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,7 @@ import { HeaderComponent } from './component/header/header.component';
     MatCheckboxModule,
     MatCardModule,
     MatButtonModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,

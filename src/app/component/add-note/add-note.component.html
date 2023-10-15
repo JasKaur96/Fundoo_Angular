@@ -1,0 +1,55 @@
+<div>
+  <div class="router-outlet-cnt">
+    <mat-card *ngIf="!expand; else addNote" class="add-note-outer-cnt">
+      <mat-card-content class="add-note-inner-cnt" (click)="handleExpand()">
+        <input placeholder="Take a note..." />
+      </mat-card-content>
+    </mat-card>
+    <ng-template #addNote>
+      <div class="add-note-outer-cnt">
+        <div class="add-note-inner-cnt" style="width: initial">
+          <input placeholder="Title" [(ngModel)]="title" />
+          <!-- <button mat-icon-button aria-label="pin icon" matTooltip="Pin">
+          <mat-icon
+            svgIcon="pin-icon"
+            aria-hidden="false"
+            aria-label="pin icon"
+          ></mat-icon>
+        </button> -->
+        </div>
+        <div class="note-details-cnt">
+          <textarea
+            placeholder="Take a note..."
+            [(ngModel)]="description"
+          ></textarea>
+        </div>
+        <div class="add-note-footer-cnt">
+          <div>
+            <!-- <app-note-footer-icons></app-note-footer-icons> -->
+            <!-- <button
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+          >
+            <mat-icon
+              svgIcon="undo-icon"
+              aria-hidden="false"
+              aria-label="undo icon"
+              matTooltip="Undo"
+            ></mat-icon>
+          </button>
+          <button mat-icon-button aria-label="redo icon" matTooltip="Redo">
+            <mat-icon
+              svgIcon="redo-icon"
+              aria-hidden="false"
+              aria-label="redo icon"
+            ></mat-icon>
+          </button> -->
+          </div>
+          <button mat-button (click)="handleClose()">Close</button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <app-notes-card></app-notes-card>
+</div>
