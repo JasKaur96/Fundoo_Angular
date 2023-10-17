@@ -20,8 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HeaderComponent } from './component/header/header.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
-import { NotesCardComponent } from './component/notes-card/notes-card.component';
+import { NotesCardComponent } from './component/display-notes-card/display-notes-card.component';
 import { NoteIconsComponent } from './component/note-icons/note-icons.component';
+import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NoteIconsComponent } from './component/note-icons/note-icons.component'
     AddNoteComponent,
     NotesCardComponent,
     NoteIconsComponent,
+    GetAllNotesComponent,
   ],
   imports: [
     BrowserModule,
