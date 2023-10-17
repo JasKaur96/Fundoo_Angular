@@ -206,7 +206,7 @@ input.nosubmit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 4px;
+  // padding-top: 13vh;
   // padding-left: 12px;
 
   div {
@@ -255,3 +255,7 @@ input.nosubmit {
 .menu-avatar {
   padding-left: 37px;
 }
+
+// .mat-toolbar-single-row[_ngcontent-ng-c4140100997] {
+//   position: fixed;
+// }
