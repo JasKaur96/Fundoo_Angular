@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NotesService } from 'src/services/notes/notes.service';
 
 @Component({
@@ -10,6 +10,7 @@ export class AddNoteComponent {
   expand = false;
   title: string = '';
   description: string = '';
+  @Output() newData: EventEmitter<any> = new EventEmitter();
 
   constructor(private notesService: NotesService) {}
   handleExpand = () => {
@@ -32,8 +33,9 @@ export class AddNoteComponent {
         .addnote(noteObj)
         .subscribe((response: any) => {
           console.log('response', response);
+
+          this.newData.emit(response.status.details);
         });
     }
-    // console.log('note', noteObj);
   };
 }
