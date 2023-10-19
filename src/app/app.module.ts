@@ -23,6 +23,8 @@ import { AddNoteComponent } from './component/add-note/add-note.component';
 import { NotesCardComponent } from './component/display-notes-card/display-notes-card.component';
 import { NoteIconsComponent } from './component/note-icons/note-icons.component';
 import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
+import { ArchiveNotesComponent } from './component/archive-notes/archive-notes.component';
+import { TrashComponent } from './component/trash/trash.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.co
     NotesCardComponent,
     NoteIconsComponent,
     GetAllNotesComponent,
+    ArchiveNotesComponent,
+    TrashComponent,
   ],
   imports: [
     BrowserModule,
