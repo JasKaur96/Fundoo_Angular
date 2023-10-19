@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
@@ -20,6 +20,8 @@ import { NotesService } from 'src/services/notes/notes.service';
   styleUrls: ['./note-icons.component.scss'],
 })
 export class NoteIconsComponent {
+  @Input() noteDetails: any;
+
   constructor(
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
@@ -63,7 +65,38 @@ export class NoteIconsComponent {
     );
   }
 
-  handleIconsClick = (color: string) => {
-    console.log('Color', color);
-  };
+  async handleIconsClick(operation: any) {
+    console.log('noteDetails', this.noteDetails);
+    if (operation == 'archive' || operation == 'unarchive') {
+      this.noteService
+        .archiveNote({
+          noteIdList: [this.noteDetails?.id],
+          isArchived: operation == 'archive' ? true : false,
+        })
+        .subscribe((response) => {
+          console.log('response', response);
+        });
+    } else if (operation === 'trash' || operation === 'restore') {
+      this.noteService.trashNote({
+        noteIdList: [this.noteDetails?.id],
+        isDeleted: operation === 'trash' ? true : false,
+      });
+    }
+    // } else if (operation == 'delete') {
+    //   const res = await this.noteService.deleteNote({
+    //     noteIdList: [this.noteDetails?.id],
+    //     isDeleted: false,
+    //   });
+    // } else {
+    //   const res = await this.noteService.colorChange({
+    //     noteIdList: [this.noteDetails?.id],
+    //     color: operation,
+    //   });
+    // }
+
+    // this.handleNotesOperations.emit({
+    //   operation: operation,
+    //   noteDetails: this.noteDetails,
+    // });
+  }
 }

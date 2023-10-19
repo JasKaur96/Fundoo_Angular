@@ -15,4 +15,20 @@ export class NotesService {
   getAllNotes = () => {
     return this.httpService.getService('/notes/getNotesList');
   };
+
+  getArchivedlNotes = () => {
+    return this.httpService.getService('/notes/getArchiveNotesList');
+  };
+
+  getTrashedNotes = () => {
+    return this.httpService.getService('/notes/trashNotes');
+  };
+
+  archiveNote = (data: {}) => {
+    return this.httpService.postService('/notes/archiveNotes', data);
+  };
+
+  trashNote = (data: {}) => {
+    return this.httpService.postService('/notes/trashNotes', data);
+  };
 }

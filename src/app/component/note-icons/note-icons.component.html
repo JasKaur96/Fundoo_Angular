@@ -56,7 +56,12 @@
       aria-label="add image icon"
     ></mat-icon>
   </button>
-  <button mat-icon-button aria-label="unarchive button" matTooltip="Unarchive">
+  <button
+    mat-icon-button
+    aria-label="unarchive button"
+    matTooltip="Unarchive"
+    (click)="handleIconsClick('archive')"
+  >
     <mat-icon
       svgIcon="unarchive-icon"
       aria-hidden="false"
@@ -64,7 +69,12 @@
     ></mat-icon>
   </button>
   <ng-template>
-    <button mat-icon-button aria-label="archive button" matTooltip="Archive">
+    <button
+      mat-icon-button
+      aria-label="archive button"
+      matTooltip="Archive"
+      (click)="handleIconsClick('archive')"
+    >
       <mat-icon
         svgIcon="archive-icon"
         aria-hidden="false"
