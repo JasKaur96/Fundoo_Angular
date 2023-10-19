@@ -1,11 +1,11 @@
-<div class="dashboard-header-outer-cnt">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar>
     <div class="menu-logo">
       <button
         mat-icon-button
         class="example-icon"
         aria-label="Example icon-button with menu icon"
-        (click)="showFiller = !showFiller"
+        (click)="handleToggle()"
       >
         <mat-icon>menu</mat-icon>
       </button>
@@ -70,10 +70,20 @@
       </div>
     </div>
   </mat-toolbar>
-  <mat-drawer-container class="side-nav-bar-outer-cnt" hasBackdrop="false">
-    <mat-drawer-content class="side-nav-drawer-cnt" opened>
-      <div class="drawer-content-cnt">
-        <div class="side-navbar-cnt">
+
+  <mat-sidenav-container
+    class="example-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+      [opened]="open"
+    >
+      <mat-nav-list>
+        <div>
           <div class="nav-cnt">
             <button mat-icon-button (click)="handleSideNav('notes')">
               <mat-icon
@@ -83,7 +93,7 @@
               ></mat-icon>
             </button>
 
-            <div *ngIf="showFiller">Note</div>
+            <div>Note</div>
           </div>
           <div class="nav-cnt">
             <button mat-icon-button>
@@ -93,7 +103,7 @@
                 aria-label="Reminder SVG icon"
               ></mat-icon>
             </button>
-            <div *ngIf="showFiller">Reminder</div>
+            <div>Reminder</div>
           </div>
           <div class="nav-cnt">
             <button mat-icon-button>
@@ -103,7 +113,7 @@
                 aria-label="Edit SVG icon"
               ></mat-icon>
             </button>
-            <span *ngIf="showFiller">Edit</span>
+            <span>Edit</span>
           </div>
           <div class="nav-cnt">
             <button mat-icon-button (click)="handleSideNav('archive')">
@@ -113,7 +123,7 @@
                 aria-label="Archive SVG icon"
               ></mat-icon>
             </button>
-            <span *ngIf="showFiller">Archive</span>
+            <span>Archive</span>
           </div>
           <div class="nav-cnt">
             <button mat-icon-button (click)="handleSideNav('trash')">
@@ -123,11 +133,68 @@
                 aria-label="Trash SVG icon"
               ></mat-icon>
             </button>
-            <span *ngIf="showFiller">Trash</span>
+            <span>Trash</span>
           </div>
         </div>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+      [opened]="!open"
+    >
+      <div>
+        <div class="nav-cnt">
+          <button mat-icon-button (click)="handleSideNav('/notes')">
+            <mat-icon
+              svgIcon="note-icon"
+              aria-hidden="false"
+              aria-label="Note SVG icon"
+            ></mat-icon>
+          </button>
+        </div>
+        <div class="nav-cnt">
+          <button mat-icon-button>
+            <mat-icon
+              svgIcon="reminder-icon"
+              aria-hidden="false"
+              aria-label="Reminder SVG icon"
+            ></mat-icon>
+          </button>
+        </div>
+        <div class="nav-cnt">
+          <button mat-icon-button>
+            <mat-icon
+              svgIcon="edit-icon"
+              aria-hidden="false"
+              aria-label="Edit SVG icon"
+            ></mat-icon>
+          </button>
+        </div>
+        <div class="nav-cnt">
+          <button mat-icon-button (click)="handleSideNav('/archive')">
+            <mat-icon
+              svgIcon="archive-icon"
+              aria-hidden="false"
+              aria-label="Archive SVG icon"
+            ></mat-icon>
+          </button>
+        </div>
+        <div class="nav-cnt">
+          <button mat-icon-button (click)="handleSideNav('/trash')">
+            <mat-icon
+              svgIcon="trash-icon"
+              aria-hidden="false"
+              aria-label="Trash SVG icon"
+            ></mat-icon>
+          </button>
+        </div>
       </div>
-      <router-outlet></router-outlet>
-    </mat-drawer-content>
-  </mat-drawer-container>
+    </mat-sidenav>
+
+    <mat-sidenav-content> <router-outlet></router-outlet></mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

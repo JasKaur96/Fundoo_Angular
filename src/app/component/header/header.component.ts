@@ -2,6 +2,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {
   ARCHIVE_ICON,
@@ -27,7 +28,23 @@ export class HeaderComponent {
   subscription!: Subscription;
   showFiller = false;
   navValue = 'notes';
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  open: boolean = false;
+  mobileQuery: MediaQueryList;
+
+  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+  private _mobileQueryListener: () => void;
+
+  constructor(
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    public router: Router
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
     iconRegistry.addSvgIconLiteral(
       'menu-icon',
       sanitizer.bypassSecurityTrustHtml(MENU_ICON)
@@ -75,6 +92,14 @@ export class HeaderComponent {
   }
 
   handleSideNav = (nav: string) => {
-    console.log('nav', nav);
+    this.router.navigate(['/dashboard' + nav]);
   };
+
+  handleToggle = () => {
+    console.log('open', this.open);
+    this.open = !this.open;
+  };
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
 }
