@@ -21,7 +21,7 @@ export class NotesService {
   };
 
   getTrashedNotes = () => {
-    return this.httpService.getService('/notes/trashNotes');
+    return this.httpService.getService('/notes/getTrashNotesList');
   };
 
   archiveNote = (data: {}) => {
@@ -29,6 +29,7 @@ export class NotesService {
   };
 
   trashNote = (data: {}) => {
+    console.log('trash', data);
     return this.httpService.postService('/notes/trashNotes', data);
   };
 }
