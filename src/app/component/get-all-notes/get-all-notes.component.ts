@@ -14,12 +14,16 @@ export class GetAllNotesComponent {
     this.allNotes = [...this.allNotes, data];
   }
 
-  ngOnInit() {
+  disaplayAllNotes() {
     this.notesService.getAllNotes().subscribe((response: any) => {
-      console.log('res', response.data.data);
-
-      this.allNotes = response.data.data;
+      this.allNotes = response?.data?.data.filter(
+        (item: any) => item.isArchived === false && item.isDeleted === false
+      );
+      this.allNotes = [...this.allNotes];
     });
-    // this.receiveMessage();
+  }
+
+  ngOnInit() {
+    this.disaplayAllNotes();
   }
 }

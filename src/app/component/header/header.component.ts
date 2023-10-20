@@ -31,7 +31,6 @@ export class HeaderComponent {
   open: boolean = false;
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   private _mobileQueryListener: () => void;
 
   constructor(
@@ -92,11 +91,12 @@ export class HeaderComponent {
   }
 
   handleSideNav = (nav: string) => {
-    this.router.navigate(['/dashboard' + nav]);
+    this.navValue = nav;
+    this.router.navigate(['/dashboard/' + nav.toLowerCase()]);
+    console.log('this.navValue', this.navValue);
   };
 
   handleToggle = () => {
-    console.log('open', this.open);
     this.open = !this.open;
   };
   ngOnDestroy(): void {

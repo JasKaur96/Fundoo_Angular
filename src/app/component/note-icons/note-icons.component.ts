@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
@@ -10,6 +10,7 @@ import {
   MORE_ICON,
   REMINDER_ICON,
   RESTORE_ICON,
+  TRASH_ICON,
   UNARCHIVE_ICON,
 } from 'src/assets/svg-icons';
 import { NotesService } from 'src/services/notes/notes.service';
@@ -21,6 +22,7 @@ import { NotesService } from 'src/services/notes/notes.service';
 })
 export class NoteIconsComponent {
   @Input() noteDetails: any;
+  @Output() handleIcons: EventEmitter<any> = new EventEmitter();
 
   constructor(
     iconRegistry: MatIconRegistry,
@@ -63,24 +65,29 @@ export class NoteIconsComponent {
       'unarchive-icon',
       sanitizer.bypassSecurityTrustHtml(UNARCHIVE_ICON)
     );
+    iconRegistry.addSvgIconLiteral(
+      'trash_icon',
+      sanitizer.bypassSecurityTrustHtml(TRASH_ICON)
+    );
   }
 
   async handleIconsClick(operation: any) {
-    console.log('noteDetails', this.noteDetails);
     if (operation == 'archive' || operation == 'unarchive') {
       this.noteService
         .archiveNote({
           noteIdList: [this.noteDetails?.id],
           isArchived: operation == 'archive' ? true : false,
         })
+        .subscribe((response) => {});
+    } else if (operation === 'trash' || operation === 'restore') {
+      this.noteService
+        .trashNote({
+          noteIdList: [this.noteDetails?.id],
+          isDeleted: operation === 'trash' ? true : false,
+        })
         .subscribe((response) => {
           console.log('response', response);
         });
-    } else if (operation === 'trash' || operation === 'restore') {
-      this.noteService.trashNote({
-        noteIdList: [this.noteDetails?.id],
-        isDeleted: operation === 'trash' ? true : false,
-      });
     }
     // } else if (operation == 'delete') {
     //   const res = await this.noteService.deleteNote({
@@ -93,7 +100,10 @@ export class NoteIconsComponent {
     //     color: operation,
     //   });
     // }
-
+    this.handleIcons.emit({
+      operation: operation,
+      noteDetails: this.noteDetails,
+    });
     // this.handleNotesOperations.emit({
     //   operation: operation,
     //   noteDetails: this.noteDetails,

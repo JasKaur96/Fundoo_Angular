@@ -1,4 +1,7 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+<div
+  class="dashboard-header-outer-cnt"
+  [class.example-is-mobile]="mobileQuery.matches"
+>
   <mat-toolbar>
     <div class="menu-logo">
       <button
@@ -16,7 +19,7 @@
           alt=""
           aria-hidden="true"
         />
-        <span class="name">Keep</span>
+        <span class="name">{{ navValue === "notes" ? "Keep" : navValue }}</span>
       </div>
     </div>
     <div>
@@ -148,7 +151,7 @@
     >
       <div>
         <div class="nav-cnt">
-          <button mat-icon-button (click)="handleSideNav('/notes')">
+          <button mat-icon-button (click)="handleSideNav('notes')">
             <mat-icon
               svgIcon="note-icon"
               aria-hidden="false"
@@ -175,7 +178,7 @@
           </button>
         </div>
         <div class="nav-cnt">
-          <button mat-icon-button (click)="handleSideNav('/archive')">
+          <button mat-icon-button (click)="handleSideNav('Archive')">
             <mat-icon
               svgIcon="archive-icon"
               aria-hidden="false"
@@ -184,7 +187,7 @@
           </button>
         </div>
         <div class="nav-cnt">
-          <button mat-icon-button (click)="handleSideNav('/trash')">
+          <button mat-icon-button (click)="handleSideNav('Trash')">
             <mat-icon
               svgIcon="trash-icon"
               aria-hidden="false"

@@ -20,7 +20,12 @@
 </div> -->
 
 <div>
-  <button mat-icon-button aria-label="reminder button" matTooltip="Reminder">
+  <button
+    class="icon-button"
+    mat-icon-button
+    aria-label="reminder button"
+    matTooltip="Reminder"
+  >
     <mat-icon
       svgIcon="reminder-icon"
       aria-hidden="false"
@@ -82,11 +87,16 @@
       ></mat-icon>
     </button>
   </ng-template>
-  <button mat-icon-button aria-label="more button" matTooltip="more">
+  <button
+    mat-icon-button
+    aria-label="more button"
+    matTooltip="Trash"
+    (click)="handleIconsClick('trash')"
+  >
     <mat-icon
-      svgIcon="more-icon"
+      svgIcon="trash_icon"
       aria-hidden="false"
-      aria-label="menu icon"
+      aria-label="trash icon"
     ></mat-icon>
   </button>
   <!-- <mat-menu>

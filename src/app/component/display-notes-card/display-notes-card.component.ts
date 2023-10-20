@@ -9,15 +9,18 @@ import { NotesService } from 'src/services/notes/notes.service';
 export class NotesCardComponent {
   @Input() notes: any;
   @Output() noteDetails: EventEmitter<any> = new EventEmitter();
-
-  // allNotes!: any;
-  // constructor(private notesService: NotesService) {}
+  @Output() receiveHandleIconsClick = new EventEmitter();
 
   ngOnInit() {
-    // this.notesService.getAllNotes().subscribe((response: any) => {
-    console.log('notes', this.notes);
     this.noteDetails.emit(this.notes);
-    //   this.allNotes = response.data.data;
-    // });
   }
+
+  receiveHandleIcons(data: any) {
+    console.log('receiveHandleIconsData', data);
+    this.receiveHandleIconsClick.emit(data.noteDetails);
+  }
+  // receiveHandleIcons($event: any) {
+  //   console.log('in displaynotes', this.notes, $event);
+  //   this.noteDetails.emit($event.noteDetails);
+  // }
 }

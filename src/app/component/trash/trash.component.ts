@@ -10,13 +10,13 @@ export class TrashComponent {
   trashedNotes!: any;
   constructor(private notesService: NotesService) {}
 
-  ngOnInit() {
-    console.log('archive');
+  disaplayAllNotes() {
     this.notesService.getTrashedNotes().subscribe((response: any) => {
-      console.log('res', response.data.data);
-
       this.trashedNotes = response.data.data;
     });
-    // this.receiveMessage();
+  }
+
+  ngOnInit() {
+    this.disaplayAllNotes();
   }
 }

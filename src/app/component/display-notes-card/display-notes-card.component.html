@@ -15,7 +15,10 @@
     </div>
     <div class="add-note-footer-cnt">
       <div>
-        <app-note-icons [noteDetails]="notes"></app-note-icons>
+        <app-note-icons
+          [noteDetails]="notes"
+          (handleIcons)="receiveHandleIcons($event)"
+        ></app-note-icons>
         <!-- <app-note-footer-icons></app-note-footer-icons> -->
         <!-- <button
             mat-icon-button

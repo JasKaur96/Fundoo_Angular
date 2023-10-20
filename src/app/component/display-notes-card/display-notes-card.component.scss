@@ -1,12 +1,13 @@
 .note-main {
   display: flex;
   justify-content: flex-start;
-  margin: 10vh 30vh;
+  margin: 10vh 10vh;
   flex-wrap: wrap;
+  padding-left: 30px;
 }
 .note-outer-cnt {
   display: flex;
-  width: 21%;
+  width: 23%;
   flex-direction: column;
   border: 1px solid #dadce0;
   background-color: #fff;

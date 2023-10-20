@@ -32,8 +32,6 @@ export class AddNoteComponent {
       const res = this.notesService
         .addnote(noteObj)
         .subscribe((response: any) => {
-          console.log('response', response);
-
           this.newData.emit(response.status.details);
         });
     }
